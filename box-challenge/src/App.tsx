@@ -1,25 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [cells, setCells] = useState(["a", "b", "C"]);
+
+  const changeCellContent = (newCellValue: string, indexToUpdate: number) => {
+    // updating cell array. Loop over element and look for index that we care about
+
+    setCells((prevCell) => {
+      return prevCell.map((cell, idx) => {
+        return idx === indexToUpdate ? newCellValue : cell;
+      });
+    });
+  };
+
+  function handlePlusClick(idx: number) {
+    setCells((prevCells) => [
+      ...prevCells.slice(0, idx + 1),
+      "_",
+      ...prevCells.slice(idx + 1),
+    ]);
+  }
+
+  const combineString = cells.join("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      <section className="wrapper">
+        {cells.map((cell, idx) => (
+          <div className="cell" key={idx}>
+            <input
+              value={cell}
+              onChange={(e) => changeCellContent(e.currentTarget.value, idx)}
+            />
+
+            {idx < cells.length - 1 && (
+              <span
+                className="plus"
+                onClick={() => handlePlusClick(idx)}
+              ></span>
+            )}
+          </div>
+        ))}
+      </section>
+      {combineString}
+    </main>
   );
 }
 
