@@ -1,0 +1,14 @@
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.selected {
+  background: #009bff;
+}
+
+.wrong {
+  background: rgb(175, 18, 18);
+}

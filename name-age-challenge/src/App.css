@@ -1,0 +1,32 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.card > p {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form > button,
+.form > input {
+  padding: 20px;
+}
