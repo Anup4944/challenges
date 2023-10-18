@@ -1,0 +1,27 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.light {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.stop {
+  background: red;
+}
+.slow {
+  background: yellow;
+}
+.go {
+  background: green;
+}
+
+.light:not(.on) {
+  background: grey;
+}
